@@ -8,10 +8,17 @@ const markup = galleryItems
         `<a class="gallery__item" href="${image.original}">
             <img class="gallery__image" 
                 src="${image.preview}"
-                data-original="${image.original}"
                 alt="${image.description}"/>
          </a>
         `)
     .join("");
 
+console.log(markup)
+
 list.insertAdjacentHTML('afterbegin', markup);
+
+let lightbox = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionsData: 'alt',
+    captionsDelay: 250,
+});
